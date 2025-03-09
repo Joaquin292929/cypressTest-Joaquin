@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Exitoso</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container confirmation-container">
+        <div class="success-icon">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="10" fill="#4CAF50"/>
+                <path d="M8 12L11 15L16 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+        
+        <h1>¡Bienvenido, <span id="userName"></span>!</h1>
+        <p class="subtitle">Tu cuenta ha sido creada correctamente</p>
+        
+        <div class="confirmation-card">
+            <h2>Resumen de información</h2>
+            <div class="user-info">
+                <div class="info-item">
+                    <span class="info-label">Nombre:</span>
+                    <span id="displayNombre" class="info-value"></span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Correo electrónico:</span>
+                    <span id="displayEmail" class="info-value"></span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Fecha de nacimiento:</span>
+                    <span id="displayFechaNacimiento" class="info-value">No proporcionada</span>
+                </div>
+            </div>
+            
+            <div class="button-group">
+                <a href="registro.html" class="btn">Volver al registro</a>
+                <a href="#" class="btn btn-primary">Continuar al área de usuario</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Obtener parámetros de la URL
+            const params = new URLSearchParams(window.location.search);
+            
+            // Mostrar información de usuario
+            const nombre = params.get('nombre');
+            const email = params.get('email');
+            const fechaNacimiento = params.get('fechaNacimiento');
+            
+            document.getElementById('userName').textContent = nombre;
+            document.getElementById('displayNombre').textContent = nombre;
+            document.getElementById('displayEmail').textContent = email;
+            
+            if (fechaNacimiento) {
+                const fecha = new Date(fechaNacimiento);
+                const opciones = { day: '2-digit', month: '2-digit', year: 'numeric' };
+                document.getElementById('displayFechaNacimiento').textContent = fecha.toLocaleDateString('es-ES', opciones);
+            }
+        });
+    </script>
+</body>
+</html>

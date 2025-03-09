@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crea tu Cuenta</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-header">
+            <h1>Crear Cuenta Nueva</h1>
+            <p class="subtitle">Completa tus datos para unirte a nuestra plataforma</p>
+        </div>
+
+        <form id="registroForm" action="confirmacion.html" method="GET">
+            <div class="form-section">
+                <div class="form-group">
+                    <label for="nombre">Nombre completo <span class="required">*</span></label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre completo" required>
+                    <div class="error-message" data-error="nombre">Este campo es obligatorio</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Correo electrónico <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" required>
+                    <div class="error-message" data-error="email">Ingrese un formato de correo válido</div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <div class="form-group">
+                    <label for="password">Contraseña <span class="required">*</span></label>
+                    <input type="password" id="password" name="password" placeholder="Mínimo 8 caracteres" required>
+                    <div class="error-message" data-error="password">La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un número</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Confirmar contraseña <span class="required">*</span></label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Repite tu contraseña" required>
+                    <div class="error-message" data-error="confirmPassword">Las contraseñas no coinciden</div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <div class="form-group">
+                    <label for="fechaNacimiento">Fecha de nacimiento</label>
+                    <input type="date" id="fechaNacimiento" name="fechaNacimiento">
+                </div>
+            </div>
+
+            <div class="form-section">
+                <div class="form-group">
+                    <label for="telefono">Teléfono</label>
+                    <input type="tel" id="telefono" name="telefono" placeholder="Escribe tu número de teléfono">
+                    <div class="error-message" data-error="telefono">Este campo es obligatorio</div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="terminos" name="terminos" required>
+                    <label for="terminos">Acepto los <a href="#">términos y condiciones</a> <span class="required">*</span></label>
+                    <div class="error-message" data-error="terminos">Debe aceptar los términos y condiciones</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" id="submitBtn">Crear cuenta</button>
+            </div>
+
+            <div class="form-footer">
+                <p>¿Ya tienes una cuenta? <a href="#">Iniciar sesión</a></p>
+            </div>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
